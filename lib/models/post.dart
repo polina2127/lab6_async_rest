@@ -1,4 +1,4 @@
-/// Оголошення (пост), яке повертає REST API.
+/// Заявка до обладнання (пост), яку повертає REST API.
 class Post {
   final int id;
   final String title;
