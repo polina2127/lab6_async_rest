@@ -14,14 +14,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Лабораторна №6')),
+      appBar: AppBar(title: const Text('Облік обладнання: ЛР №6')),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           Card(
             child: ListTile(
               leading: const Icon(Icons.cloud_download),
-              title: const Text('REST API: оголошення'),
+              title: const Text('Заявки на обладнання (REST API)'),
               subtitle: const Text('GET, POST, Retry, pull-to-refresh'),
               onTap: () => _open(context, const PostsScreen()),
             ),
