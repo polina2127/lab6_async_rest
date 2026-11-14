@@ -20,7 +20,7 @@ class ApiService {
   static const String _baseUrl = 'https://jsonplaceholder.typicode.com';
   static const Duration _timeout = Duration(seconds: 10);
 
-  /// GET /posts: повертає список оголошень.
+  /// GET /posts: повертає список заявок.
   Future<List<Post>> getPosts() {
     return _guard(() async {
       final response = await http
@@ -36,7 +36,7 @@ class ApiService {
     });
   }
 
-  /// POST /posts: створює нове оголошення (сервер відповідає кодом 201).
+  /// POST /posts: створює нову заявку (сервер відповідає кодом 201).
   Future<Post> createPost(String title, String body) {
     return _guard(() async {
       final response = await http
