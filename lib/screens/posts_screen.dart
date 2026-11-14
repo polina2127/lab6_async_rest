@@ -57,17 +57,17 @@ class _PostsScreenState extends State<PostsScreen> {
     final shouldSend = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Нове оголошення'),
+        title: const Text('Нова заявка'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: titleController,
-              decoration: const InputDecoration(labelText: 'Заголовок'),
+              decoration: const InputDecoration(labelText: 'Тема заявки'),
             ),
             TextField(
               controller: bodyController,
-              decoration: const InputDecoration(labelText: 'Текст'),
+              decoration: const InputDecoration(labelText: 'Опис проблеми'),
               maxLines: 3,
             ),
           ],
@@ -90,7 +90,7 @@ class _PostsScreenState extends State<PostsScreen> {
     final title = titleController.text.trim();
     final body = bodyController.text.trim();
     if (title.isEmpty || body.isEmpty) {
-      _showMessage('Заповніть заголовок і текст');
+      _showMessage('Заповніть тему й опис');
       return;
     }
 
@@ -103,7 +103,7 @@ class _PostsScreenState extends State<PostsScreen> {
       setState(() {
         _createdPosts.insert(0, created);
       });
-      _showMessage('Оголошення створено, id = ${created.id}');
+      _showMessage('Заявку створено, id = ${created.id}');
     } on ApiException catch (e) {
       _showMessage(e.message);
     } catch (e) {
@@ -146,7 +146,7 @@ class _PostsScreenState extends State<PostsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Оголошення (REST API)'),
+        title: const Text('Заявки на обладнання'),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -199,7 +199,7 @@ class _PostsScreenState extends State<PostsScreen> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _isSending ? null : _showCreateDialog,
         icon: const Icon(Icons.add),
-        label: const Text('Нове оголошення'),
+        label: const Text('Нова заявка'),
       ),
     );
   }
